@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Feed extends StatefulWidget {
-  const Feed({super.key});
+  const Feed({super.key, required this.imageUrl});
+
+  final String imageUrl; // 이미지를 담을 변수
 
   @override
   State<Feed> createState() => _FeedState();
@@ -18,7 +20,7 @@ class _FeedState extends State<Feed> {
       children: [
         // 이미지
         Image.network(
-          "https://devclass.devstory.co.kr/flutter-basic/2/cat.png",
+          widget.imageUrl,
           height: 400,
           width: double.infinity,
           fit: BoxFit.cover,

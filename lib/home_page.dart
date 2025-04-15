@@ -7,6 +7,15 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> images = [
+      "https://devclass.devstory.co.kr/flutter-basic/2/insta-cat1.jpg",
+      "https://devclass.devstory.co.kr/flutter-basic/2/insta-cat2.jpg",
+      "https://devclass.devstory.co.kr/flutter-basic/2/insta-cat3.jpg",
+      "https://devclass.devstory.co.kr/flutter-basic/2/insta-cat4.jpg",
+      "https://devclass.devstory.co.kr/flutter-basic/2/insta-cat5.jpg",
+      "https://devclass.devstory.co.kr/flutter-basic/2/insta-cat6.jpg",
+      "https://devclass.devstory.co.kr/flutter-basic/2/insta-cat7.gif",
+    ];
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -23,7 +32,13 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.white,
       ),
-      body: Feed(),
+      body: ListView.builder(
+        itemCount: images.length,
+        itemBuilder: (context, index) {
+          String image = images[index];
+          return Feed(imageUrl: image);
+        },
+      ),
     );
   }
 }
